@@ -53,7 +53,6 @@ class RentServiceTest {
         when(userRepository.findById(any())).thenReturn(createUser());
         when(carRepository.findById(any())).thenReturn(createCar());
         when(rentRepository.save(any())).thenAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]);
-//        when(rentRepository.save(any())).thenReturn(createRent());
         Long userId = Math.abs(new Random().nextLong());
 
         //when
@@ -138,7 +137,6 @@ class RentServiceTest {
             assertThat(actualRent.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
         });
     }
-
 
     private Optional<Car> createCar() {
         return Optional.of(Car.builder()
