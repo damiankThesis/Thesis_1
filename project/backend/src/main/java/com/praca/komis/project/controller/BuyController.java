@@ -35,19 +35,19 @@ public class BuyController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Buy> getOneBuy(@PathVariable Long id) {
-        logger.info("GET /api/v1/buy" + id);
+        logger.info("GET /api/v1/buy/" + id);
         return buyService.getOneBuy(id);
     }
 
     @GetMapping("/user/{id}")
     public ResponseEntity<List<Buy>> getBuyByUser(@PathVariable Long id) {
-        logger.info("GET /api/v1/buy/user" + id);
+        logger.info("GET /api/v1/buy/user/" + id);
         return buyService.getBuyByUser(id);
     }
 
     @GetMapping("/car/{id}")
     public ResponseEntity<List<Buy>> getBuyByCar(@PathVariable Long id) {
-        logger.info("GET /api/v1/buy/car" + id);
+        logger.info("GET /api/v1/buy/car/" + id);
         return buyService.getBuyByCar(id);
     }
 
