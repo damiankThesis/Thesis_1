@@ -13,10 +13,6 @@ export class CarService {
 
   constructor(private http: HttpClient) { }
 
-  // public getCars(): Observable<ListResponseModel<Car>> {
-  //   return this.http.get<ListResponseModel<Car>>(`${this.apiServerUrl}/api/v1/cars/page`);
-  // }
-
   public getCarsAdmin(page: number, size: number): Observable<PageModel<Car>> {
     return this.http.get<PageModel<Car>>(`${this.apiServerUrl}/api/v1/cars?page=${page}&size=${size}`);
   }
