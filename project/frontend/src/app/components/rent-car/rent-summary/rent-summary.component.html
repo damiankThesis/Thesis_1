@@ -1,0 +1,91 @@
+<div class="container">
+  <h1>Summary</h1>
+  <div>
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Info</th>
+        <th scope="col">Date range</th>
+        <th scope="col" style="width: 120px">Total</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td> <img *ngIf="data?.car.image else defaultCarImage" src="{{'http://localhost:8080/api/v1/cars/data/images/car/' + data?.car.image}}" alt="">
+        </td>
+        <td>
+          <div class="info">
+          <p class="main">{{data?.car.brand}} {{data?.car.model}}</p>
+          <p>production year: {{data?.car.carDetail.productionYear>0? data?.car.carDetail.productionYear +'r.' : '-'}}</p>
+          <p>fuel: {{data?.car.carDetail.fuel || '-'}}, drive: {{data?.car.carDetail.drive || '-'}}</p>
+          <p>power: {{data?.car.carDetail.power>0? data?.car.carDetail.power+'KM' : '-'}},
+            engine size: {{data?.car.carDetail.capacity>0? data?.car.carDetail.capacity>0 +'cm3' : '-'}}</p>
+          <p>seats: {{data?.car.carDetail.seats || '-'}}, doors: {{data?.car.carDetail.doors || '-'}}</p>
+          <p>color: {{data?.car.carDetail.color.toLowerCase() || '-'}}</p>
+          </div>
+        </td>
+        <td class="date">
+          <p>from: <span>{{data?.range.controls.start.value | date: 'dd-MM-yyyy'}}</span></p>
+          <p>to:   <span>{{data?.range.controls.end.value | date: 'dd-MM-yyyy'}}</span></p>
+        </td>
+        <td class="price"><span>{{data?.price}} PLN</span></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <ng-template #defaultCarImage>
+      <img src="../../../../assets/img/default.jpg" alt="cars">
+    </ng-template>
+
+    <div fxLayoutAlign="end start">
+      <div class="summary"> Discount: </div>
+      <div class="summary"> <b>{{data?.discount}} PLN</b></div>
+    </div>
+    <div>
+      <h2>Pick-up</h2>
+      <mat-radio-group fxLayout="column" [(ngModel)]="ship">
+        <mat-radio-button class="option" value="self" checked>
+          self-pickup at the headquarters
+        </mat-radio-button>
+        <mat-radio-button class="option" value="ship"
+                          matTooltip="This option is not available now!"
+                          matTooltipShowDelay="300"
+                          matTooltipPosition="before"
+                          disabled>
+          indicated address
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="payment">
+      <h2>Payment</h2>
+      <mat-radio-group fxLayout="column" [(ngModel)]="paymentMethod">
+        <mat-radio-button class="option" value="PRZELEWY24_ONLINE" >Online payment</mat-radio-button>
+        <mat-radio-button class="option" value="CASH">Cash</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="desc">
+      <h2>Additional information</h2>
+      <textarea class="form-control" [(ngModel)]="description" placeholder="Description" rows="2"></textarea>
+    </div>
+
+  </div>
+  <div fxLayoutAlign="end">
+    <div class="orderTotal">Amount to pay:
+      <span class="orderTotalValue">{{data.price + data.discount}} PLN</span>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage"  class="errorMessage" fxLayoutAlign="end start">
+    Something went wrong. Please try again later.
+  </div>
+
+  <div fxLayoutAlign="end start">
+   <button mat-flat-button color="accent" (click)="rentCar()" class="orderButton">Rent!</button>
+  </div>
+
+</div>
+
+

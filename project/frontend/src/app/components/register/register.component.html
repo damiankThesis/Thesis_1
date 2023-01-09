@@ -1,0 +1,42 @@
+<div class="register">
+  <div class="form">
+
+    <form [formGroup]="registerFormGroup" fxLayout="column" (submit)="submit()" >
+      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
+      <div *ngIf="formError" class="error">User with this email already exist!</div>
+      <div *ngIf="doConfirm" class="confirm">Go to email and confirm account</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Your name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Your surname</mat-label>
+        <input matInput formControlName="surname" required >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Your email</mat-label>
+        <input type="email" matInput formControlName="username" email required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Your phone</mat-label>
+        <input maxlength="9" pattern="[0-9]{9}" matInput formControlName="phone" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat your password</mat-label>
+        <input type="password" matInput formControlName="repeatPassword">
+      </mat-form-field>
+
+      <button mat-flat-button color="primary">Register</button>
+
+    </form>
+  </div>
+</div>

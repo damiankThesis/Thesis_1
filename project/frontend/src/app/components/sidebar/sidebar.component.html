@@ -1,0 +1,35 @@
+<div class="sidebar">
+
+  <div class="opt">
+    <p>Rental price</p>
+    <div class="price">
+      <input type="number" [(ngModel)]="priceMin" min="0" class="form-control inner" placeholder="od">
+      <input type="number" [(ngModel)]="priceMax" min="0" class="form-control inner" placeholder="do">
+    </div>
+  </div>
+
+<div class="opt">
+  <p>Seats</p>
+  <div class="price">
+    <input type="number" min="0" max="20" [(ngModel)]="seatsMin" class="form-control inner" placeholder="od">
+  </div>
+</div>
+
+  <div class="opt">
+    <p>Power</p>
+    <div class="price">
+      <input type="number" min="0" max="999" [(ngModel)]="powerMin" class="form-control inner" placeholder="od">
+      <input type="number" min="0" max="999" [(ngModel)]="powerMax" class="form-control inner" placeholder="od">
+    </div>
+  </div>
+
+  <div class="opt">
+    <p>Engine size</p>
+    <div class="price">
+      <input type="number" min="0" max="7000" [(ngModel)]="capMin" class="form-control inner" placeholder="od">
+      <input type="number" min="0" max="7000" [(ngModel)]="capMax" class="form-control inner" placeholder="od">
+    </div>
+  </div>
+
+  <div class="apply"><button mat-flat-button color="primary" (click)="apply()">apply</button></div>
+</div>

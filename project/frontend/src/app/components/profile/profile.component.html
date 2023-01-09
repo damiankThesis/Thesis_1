@@ -1,0 +1,91 @@
+<div *ngIf="info" class="container">
+<div class="info">
+  <div class="left">
+      <div class="head">Account details</div>
+      <p class="user name"> {{info.name}} {{info.surname}}</p>
+      <p class="user">email: {{info.username}}</p>
+      <p class="user">phone: {{info.phone}}</p>
+      <p class="user">number of rented cars: {{info.numberOfRent}}</p>
+      <p class="user">number of cars purchased: {{info.numberOfBuy}}</p>
+  </div>
+  <div class="right">
+    <div class="rightPanel">
+      <div class="image">
+        <img src="assets/img/avatar.png" class="img-fluid" alt="Responsive image">
+      </div>
+
+      <div class="edit">
+        <a (click)="edit(info.id)">
+          <mat-icon class="icon-display"
+                    matTooltip="Edit personal info"
+                    matTooltipShowDelay="300"
+                    matTooltipPosition="before"
+          >edit</mat-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--  <div class="right">-->
+<!--    <button class="btn btn-success btn-lg">change password</button>-->
+<!--&lt;!&ndash;    <button class="btn btn-danger btn-lg">delete</button>&ndash;&gt;-->
+<!--  </div>-->
+
+  <div class="tables">
+    <div class="rentTable">
+      <div class="container">
+        <h2>Buys</h2>
+        <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Buy date</th>
+            <th scope="col">Car</th>
+            <th scope="col">Cost</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <ng-container *ngFor="let oper of buys">
+            <tr>
+              <td>{{oper.meetDate | date: 'dd-MM-yyyy'}}</td>
+              <td>{{oper.car.brand}} {{oper.car.model}}</td>
+              <td>{{oper.totalBuyCost}} PLN</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="buyTable">
+      <div class="container">
+        <h2>Rents</h2>
+        <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Car</th>
+            <th scope="col">Total cost</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <ng-container *ngFor="let oper of rents">
+            <tr>
+              <td>{{oper.startDate | date: 'dd-MM-yyyy'}}</td>
+              <td>{{oper.endDate | date: 'dd-MM-yyyy'}}</td>
+              <td>{{oper.car.brand}} {{oper.car.model}}</td>
+              <td>{{oper.totalCost}} PLN</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

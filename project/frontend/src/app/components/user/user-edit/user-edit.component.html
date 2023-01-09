@@ -1,0 +1,28 @@
+<div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+
+  <div id="content" class="container">
+
+    <form [formGroup]="userEditForm" fxLayout="column" (submit)="edit()" >
+      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Edit personal info</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Your name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Your surname</mat-label>
+        <input matInput formControlName="surname" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Your phone</mat-label>
+        <input maxlength="9" pattern="[0-9]{9}" matInput formControlName="phone" required>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary">Confirm</button>
+
+    </form>
+
+
+  </div>
+</div>

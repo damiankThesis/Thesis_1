@@ -1,0 +1,45 @@
+.register {
+  width: 100%;
+  padding-top: 60px;
+}
+
+form {
+  background-color: #eee;
+  min-width: 400px;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 15px 50px;
+  margin: auto auto 13%;
+}
+
+button {
+  min-width: 200px;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.confirm {
+  color: green;
+  font-size: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 16px;
+}
+
+.alert-success {
+  padding-top: 15px;
+}

@@ -1,0 +1,44 @@
+<h2 style="margin-bottom: 30px;">List of users</h2>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="table" matSort (matSortChange)="announceSortChange($event)">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header>Name</th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.name}} {{element.surname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Email </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" > Phone number </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="numberOfRent" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Rents </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.numberOfRent}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="numberOfBuy">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Buys </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.numberOfBuy}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light buttons"> Delete </th>
+    <td class="buttons" mat-cell *matCellDef="let element">
+      <button mat-raised-button class="btn btn-danger" (click)="deleteUser(element.id)">delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

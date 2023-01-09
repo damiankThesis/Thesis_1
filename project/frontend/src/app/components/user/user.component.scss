@@ -1,0 +1,36 @@
+:host {
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  background-color: white;
+  border: 0 solid black;
+  width: 130%;
+  vertical-align: middle;
+  horiz-align: center
+}
+
+th {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.thead-light {
+  background-color: #aaabbb;
+  text-align: left;
+  vertical-align: middle;
+}
+
+button {
+  height: 40px;
+}
+
+.data {
+  text-align: left;
+}
+
+.buttons {
+  text-align: center;
+}
+

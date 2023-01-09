@@ -1,0 +1,106 @@
+.orderForm{
+  width: 400px;
+}
+.errorMessage{
+  color: red;
+}
+
+.payment,
+.option {
+  padding-top: 10px;
+}
+
+.orderButton{
+  font-size: 22px;
+  margin-top: 10px;
+  width: 220px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+  padding-top: 10px;
+}
+
+.main {
+  font-weight: bold;
+  font-size: larger;
+}
+
+tr {
+  text-align: center;
+}
+
+.info {
+  text-align: left;
+}
+
+img {
+  width: 270px;
+}
+
+.summary {
+  padding: 7px;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+}
+
+.summary{
+  background: white;
+  padding: 11px;
+  border-bottom: 1px solid #eee;
+}
+
+.orderSummary{
+  font-size: 18px;
+}
+
+.orderSummary div{
+  margin-bottom:12px;
+}
+
+.date span{
+  font-size: larger;
+  font-weight: bold
+}
+
+.price {
+  font-size: large;
+  font-weight: bold;
+
+  span {
+    padding-top: 7px;
+  }
+}
+
+.orderTotal{
+  background: white;
+  padding:15px;
+  border-bottom: 1px solid #eee;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.desc {
+  padding-top: 10px;
+  width: 40%;
+}
+
+.orderTotalValue{
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.paymentNote{
+  font-weight: 700;
+}
+
+.loginInfo{
+  font-size: 18px;
+}

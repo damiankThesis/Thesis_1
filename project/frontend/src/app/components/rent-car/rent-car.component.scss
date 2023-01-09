@@ -1,0 +1,177 @@
+.container {
+  min-width: 850px;
+  padding: 15px;
+  min-height: 73vh;
+}
+
+.calendar {
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.inCalendar {
+  background-color: #d0d0d0;
+  color: black;
+}
+
+.panel {
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+}
+
+.left {
+  display: inline-block;
+  padding: 15px;
+  text-align: center;
+  width: 45%;
+}
+
+.rightPanel {
+  color: white;
+  display: inline-block;
+  padding: 15px;
+  vertical-align: top;
+  width: 50%;
+}
+
+.amount {
+  font-size: 28px;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px 0 40px 10px;
+}
+
+.rentPrice {
+  color: #363636;
+  text-align: center;
+  width: 90%;
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 15px;
+
+  p {
+    font-size: 20px;
+    text-align: left;
+    color: #185c83;
+  }
+
+  .price {
+    color: #549454;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+}
+
+.unit {
+  color: #549454;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.calinfo {
+  font-size: 18px;
+  color: #03032f;
+}
+
+.detailsPanelLeft {
+  display: inline-block;
+  padding-left: 20px;
+  width: 40%;
+}
+
+.detailsPanelRight {
+  display: inline-block;
+  width: 40%;
+  float: right;
+}
+
+.right {
+  background-color: #565454;
+  color: white;
+  padding: 15px;
+  height: 560px;
+}
+
+.info {
+  color: white;
+  height: auto;
+  font-size: 21px;
+  padding-top: 12px;
+  padding-left: 20px;
+
+   .main {
+     text-align: center;
+     border-bottom: 0;
+     color: white;
+     font-weight: bold;
+     padding-bottom: 14px;
+     font-size: 35px;
+     width: 100%;
+   }
+
+   .name {
+     color: lightskyblue;
+     border-bottom: 1px solid red;
+     padding-bottom: 1px;
+     padding-top: 12px;
+     width: 150px;
+   }
+
+  .details {
+    border-bottom: 0;
+    color: white;
+    font-size: 18px;
+    line-height: 5px;
+  }
+}
+
+.images {
+  display: inline-block;
+  padding-left: 15px;
+  text-align: center;
+
+  img {
+    border: 3px solid rgba(198, 252, 105, 0.54);
+    width: 100%;
+  }
+}
+
+.desc {
+  box-sizing:border-box
+}
+
+.buttons {
+  width: 100%;
+  display: inline-block;
+}
+
+.buttons {
+  padding-top: 30px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+button {
+  width: 25%;
+  margin-left: 15px;
+
+}
+
+.value {
+  color: black;
+  padding-top: 15px;
+  font-size: 22px;
+  width: 100%;
+
+  span {
+    color: #03032f;
+    font-weight: bold;
+    font-size: 26px;
+  }
+}

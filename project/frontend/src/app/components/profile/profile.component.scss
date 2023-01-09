@@ -1,0 +1,100 @@
+.container {
+  margin-top: 30px;
+  min-height: 33vh;
+  width: 100%;
+}
+
+.left {
+  padding-top: 20px;
+  padding-left: 10px;
+  display: inline-block;
+  width: 60%;
+}
+
+.head {
+  padding: 20px 0 20px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.info {
+  background-color: #03032f;
+  border-radius: 10px;
+  width: 50%;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+.name {
+  font-weight: 500;
+  margin-bottom: 45px;
+}
+
+.user {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.right {
+  display: inline-block;
+  width: 40%;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.rightPanel {
+  display: flex;
+}
+
+mat-icon {
+  color: white;
+  cursor: pointer;
+}
+
+.edit {
+  padding-right: 15px;
+}
+
+.icon-display {
+  transform: scale(1.8);
+}
+
+.table {
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+  border: 0 solid black;
+}
+
+img {
+  width: 80%;
+}
+
+h2 {
+  font-weight: 550;
+  font-size: 30px;
+}
+
+th {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.thead-light {
+  background-color: #aaabbb;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tables {
+  width: 90%;
+  text-align: center;
+}
+
+.rentTable,
+.buyTable {
+  display: inline-block;
+  width: 40%;
+}

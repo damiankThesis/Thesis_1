@@ -1,0 +1,104 @@
+<div *ngIf="car" class="container">
+  <div class="panel">
+
+    <div class="left">
+      <div class="images">
+        <img *ngIf="car.image else defaultCarImage" src="{{'http://localhost:8080/api/v1/cars/data/images/car/' + car.image}}" alt="">
+      </div>
+
+      <ng-template #defaultCarImage>
+        <img src="../../../assets/img/default.jpg" alt="cars">
+      </ng-template>
+
+     <div class="amount">
+       <div *ngIf="car.rentBasePrice" class="rentPrice">rent: <span class="price">{{car.rentBasePrice}}</span><span class="unit"> PLN/day</span></div>
+     </div>
+
+      <ng-container *ngIf="car.rentBasePrice">
+        <div class="calendar">
+          <p class="calinfo">Select a date range</p>
+
+          <mat-form-field class="inCalendar" appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range"
+                                  [rangePicker]="picker"
+                                  [min]="todayDate"
+                                  [max]="endDate"
+                                  [dateFilter]="myFilter"
+                                  required >
+              <input matStartDate formControlName="start" placeholder="Start date" required>
+              <input matEndDate formControlName="end" placeholder="End date"
+                     (dateChange)="selectRange()" required>
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker ></mat-date-range-picker>
+
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+
+          <div *ngIf="showPrice" class="value">Estimated amount: <span>{{price || ''}}</span>zł </div>
+        </div>
+
+      </ng-container>
+
+    </div>
+
+    <div class="rightPanel">
+      <div class="right">
+        <div class="info">
+          <p class="main">{{car.brand}} {{car.model}}</p>
+
+          <div class="detailsPanelLeft">
+            <p class="name">Year</p>
+            <p class="details">{{car.carDetail.productionYear || 'no data'}}</p>
+
+            <p class="name">Type car</p>
+            <p class="details">{{car.carDetail.type || 'no data'}}</p>
+
+            <p class="name">Fuel</p>
+            <p class="details">{{car.carDetail.fuel || 'no data'}}</p>
+
+            <p class="name">Power</p>
+            <p class="details">{{car.carDetail.power? car.carDetail.power+" KM" : 'no data'}}</p>
+
+            <p class="name">Engine size</p>
+            <p class="details">{{car.carDetail.capacity? car.carDetail.capacity +" cm3"  : 'no data'}}</p>
+
+            <p class="name">Gearbox</p>
+            <p class="details">{{car.carDetail.gearbox || 'no data'}}</p>
+          </div>
+
+          <div class="detailsPanelRight">
+            <p class="name">Drive</p>
+            <p class="details">{{car.carDetail.drive || 'no data'}}</p>
+
+            <p class="name">Doors</p>
+            <p class="details">{{car.carDetail.doors || 'no data'}}</p>
+
+            <p class="name">Seats</p>
+            <p class="details">{{car.carDetail.seats || 'no data'}}</p>
+
+            <p class="name">Color</p>
+            <p class="details">{{car.carDetail.color || 'no data'}}</p>
+
+             <div *ngIf="car.carDetail.description">
+                <p class="name">Description</p>
+                <textarea disabled readonly class="form-control desc" placeholder="Description" cols="150" rows="6"
+                          value="{{car.carDetail.description}}">
+                </textarea>
+              </div>
+          </div>
+       </div>
+      </div>
+    </div>
+</div>
+
+  <div class="buttons">
+      <button *ngIf="car.rentBasePrice?.valueOf()" (click)=rentCar(car.id)
+              matTooltip="Want to rent car? Click!" matTooltipShowDelay="300"
+              class="btn btn-success btn-lg">Rent</button>
+  </div>
+
+</div>
