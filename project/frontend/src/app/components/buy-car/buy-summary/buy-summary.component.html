@@ -1,0 +1,72 @@
+<div class="container">
+
+  <div *ngIf="true">
+    <h1>Summary</h1>
+      <div>
+
+        <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Info</th>
+            <th scope="col">Date</th>
+            <th scope="col" style="width: 120px">Price</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td> <img *ngIf="data?.car.image else defaultCarImage" src="{{'http://localhost:8080/api/v1/cars/data/images/car/' + data?.car.image}}" alt="">
+            </td>
+            <td>
+              <div class="info">
+              <p class="main">{{data?.car.brand}} {{data?.car.model}}</p>
+              <p>production year: {{data?.car.carDetail.productionYear>0? data?.car.carDetail.productionYear +'r.' : '-'}}</p>
+              <p>fuel: {{data?.car.carDetail.fuel || '-'}}, drive: {{data?.car.carDetail.drive || '-'}}</p>
+              <p>power: {{data?.car.carDetail.power>0? data?.car.carDetail.power+'KM' : '-'}},
+                Engine size: {{data?.car.carDetail.capacity>0? data?.car.carDetail.capacity>0 +'cm3' : '-'}}</p>
+              <p>seats: {{data?.car.carDetail.seats || '-'}}, doors: {{data?.car.carDetail.doors || '-'}}</p>
+              <p>color: {{data?.car.carDetail.color.toLowerCase() || '-'}}</p>
+              </div>
+            </td>
+            <td class="date">
+              <p><span>{{data?.date.controls.start.value | date: 'dd-MM-yyyy'}}</span></p>
+            </td>
+            <td class="price"><span>{{data?.car.buyPrice}} PLN</span></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <ng-template #defaultCarImage>
+          <img src="../../../../assets/img/default.jpg" alt="cars">
+        </ng-template>
+
+        <div fxLayoutAlign="end start">
+          <div class="summary">price is negotiable</div>
+        </div>
+
+        <div class="desc">
+          <h2>Additional information</h2>
+          <textarea class="form-control" [(ngModel)]="description" placeholder="Description" rows="2"></textarea>
+        </div>
+
+      </div>
+
+    <div *ngIf="errorMessage"  class="errorMessage" fxLayoutAlign="end start">
+      Something went wrong. Please try again later.
+    </div>
+
+    <div fxLayoutAlign="end start">
+      <button mat-flat-button color="accent" (click)="buyCar()" class="orderButton">Confirm!</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+<div style="margin-top: 50px; margin-bottom: 50px;" class="container">
+  <h2>Add new car</h2>
+
+  <div id="content" class="container">
+    <form class="container" [formGroup]="carAddFrom">
+
+      <div class="leftPanel">
+        <div class="form-group">
+          <label>Brand Name</label>
+          <input type="text" formControlName="brand" class="form-control" placeholder="Brand" required>
+        </div>
+
+        <div class="form-group">
+          <label>Model Name</label>
+          <input type="text" formControlName="model" class="form-control" placeholder="Model" required>
+        </div>
+
+        <div class="form-group">
+          <label>Registration numbers</label>
+          <input type="text" formControlName="registration" minlength="4" maxlength="8" class="form-control" placeholder="Registration numbers" required>
+        </div>
+
+        <div class="form-group">
+          <label>Buy Price</label>
+          <input type="number" formControlName="buyPrice" min="0" class="form-control" placeholder="Buy Price" required>
+        </div>
+
+        <div class="form-group">
+          <label>Rent Price</label>
+          <input type="number" formControlName="rentBasePrice" min="0" class="form-control" placeholder="Rent Price" required>
+        </div>
+
+        <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+          <div class="col-md-6">
+            <label>Availability Status</label>
+            <select formControlName="availableStatus" class="custom-select">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rightPanel">
+
+        <div class="row options" style="padding-top: 15px; padding-bottom: 15px;">
+          <div class="col-md-6">
+            <label>Type of car</label>
+            <select formControlName="type" class="custom-select">
+              <option>Cabriolet</option>
+              <option>City</option>
+              <option>Combi</option>
+              <option>Coupe</option>
+              <option>Crossover</option>
+              <option>Hatchback</option>
+              <option>Sedan</option>
+              <option>Sport</option>
+              <option>SUV</option>
+              <option>Truck</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row options" style="padding-top: 15px; padding-bottom: 15px;">
+          <div class="col-md-6">
+            <label>Type of fuel</label>
+            <select formControlName="fuel" class="custom-select">
+              <option>Diesel</option>
+              <option>Electric</option>
+              <option>Hybrid</option>
+              <option>Petrol</option>
+              <option>Petrol+LPG/CNG</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+         <label>Production Year</label>
+         <input type="number" formControlName="productionYear" class="form-control" placeholder="Production Year">
+       </div>
+
+      <div class="form-group">
+        <label>Power</label>
+        <input type="number" formControlName="power" class="form-control" placeholder="Power">
+      </div>
+
+      <div class="form-group">
+        <label>Engine size</label>
+        <input type="number" formControlName="capacity" class="form-control" placeholder="Engine size">
+      </div>
+
+      <div class="row options" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label>Type of gearbox</label>
+          <select formControlName="gearbox" class="custom-select">
+            <option>Manual</option>
+            <option>Automatic</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row options" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="col-md-6">
+          <label>Type of drive</label>
+          <select formControlName="drive" class="custom-select">
+            <option>4x4</option>
+            <option>FWD</option>
+            <option>RWD</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Doors</label>
+        <input type="number" formControlName="doors" class="form-control" placeholder="doors">
+      </div>
+
+      <div class="form-group">
+        <label>Seats</label>
+        <input type="number" formControlName="seats" class="form-control" placeholder="seats">
+      </div>
+
+      <div class="form-group">
+        <label>Color</label>
+        <input type="text" formControlName="color" class="form-control" placeholder="color">
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" formControlName="description" placeholder="Description" rows="2"></textarea>
+      </div>
+
+      </div>
+      <div class="button">
+        <button (click)="addCar()" class="btn btn-warning btn-lg">Add</button>
+      </div>
+    </form>
+
+  </div>
+</div>

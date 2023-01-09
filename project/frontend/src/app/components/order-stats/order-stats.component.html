@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="chart">
+    <h1>Rental</h1>
+    <canvas id="statsRent" class="chartRent" style="width: 80%; height: 500px" #statsRent></canvas>
+
+    <div class="additional">
+      <div>Number of rentals: <b>{{amountSumRent}}</b></div>
+      <div>Total: <b>{{valueSumRent | currency:'PLN ':true}}</b></div>
+    </div>
+  </div>
+
+  <div>
+    <h1>Buy</h1>
+    <canvas id="statsBuy" class="chartBuy" style="width: 80%; height: 500px" #statsBuy>
+    </canvas>
+
+    <div class="additional">
+      <div>Bought: <b>{{amountSumBuy}}</b></div>
+      <div>Total: <b>{{valueSumBuy | currency:'PLN ':true}}</b></div>
+    </div>
+  </div>
+
+</div>

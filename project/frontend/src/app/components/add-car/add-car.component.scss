@@ -1,0 +1,65 @@
+.container {
+  min-width: 830px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.leftPanel,
+.rightPanel {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.leftPanel {
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+.options {
+  width: 42%;
+  display: inline-block;
+}
+
+.button {
+  text-align: center;
+}
+
+button {
+  width: 60%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+select {
+  width: 140px;
+}
+
+label {
+  padding-top: 15px;
+  color: #c0e3f6;
+}
+
+input, textarea {
+  width: 300px;
+}
+
+#content {
+  background-color: #333334;
+  border:1px solid #f0ad4e;
+  border-radius: 20px;
+}
+
+form {
+  padding: 20px;
+}
+
+.form-control:focus {
+  border : 2px solid #f0ad4e;
+}

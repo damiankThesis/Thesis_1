@@ -1,0 +1,158 @@
+.root {
+  padding-left: 20px;
+  width: 80%;
+  min-height: 73vh;
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background-color: #bebec5;
+}
+
+app-sidebar {
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  min-width: 200px;
+}
+
+.cont {
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 40%;
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  min-width: 425px;
+}
+
+.page {
+  padding-top: 30px;
+  width: 90%;
+}
+
+mat-paginator {
+  background-color: #bebec5;
+}
+
+.contUnAv {
+  background: lightblue;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.contAv {
+  background: darkgray;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  opacity: 55%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.offer {
+  height: 500px;
+  padding: 15px;
+  text-align: center;
+  overflow: hidden;
+
+  img {
+    max-width: 500px;
+    max-height: 300px;
+  }
+}
+
+.info {
+  height: 100px;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.image {
+  height: 270px;
+
+  img {
+    width: 100%;
+    max-width: 500px;
+    max-height: 270px;
+  }
+}
+
+.main {
+  font-size: 30px;
+  font-weight: 500;
+  justify-content: space-between;
+  display: block;
+}
+
+.infos {
+  padding-top: 15px;
+  text-align: center;
+  display: inline-block;
+
+  img {
+    padding-right: 3px;
+  }
+}
+
+.inner {
+  display: inline-block;
+}
+
+.about {
+  padding-bottom: 1px;
+  padding-right: 10px;
+  text-align: left;
+  font-size: 19px;
+  color: #1f1f1f;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.details {
+  padding-bottom: 1px;
+  text-align: left;
+  text-justify: auto;
+  width: 100%;
+  word-break: break-all;
+}
+
+.calendar {
+  padding-top: 10px;
+}
+
+.button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.price {
+  display: inline-block;
+  width: 45%;
+}
+
+.adminButton {
+  margin-left: 10px;
+  width: 22%;
+}
+
+button {
+  width: 80%;
+}
+
+.value {
+  font-size: 25px;
+  font-weight: 550;
+  padding-top: 8px;
+
+  .unit {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+}
+
+mat-form-field {
+  width: 230px;
+}

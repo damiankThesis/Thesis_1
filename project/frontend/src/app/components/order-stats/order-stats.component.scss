@@ -1,0 +1,32 @@
+.container {
+  min-height: 73vh;
+}
+
+canvas {
+  margin-top: 20px;
+  background-color: white;
+}
+
+.chart {
+  padding-top: 20px;
+}
+
+.form {
+  padding-top: 20px;
+}
+
+.additional {
+  font-size: 20px;
+  text-align: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.periodChoose {
+  display: inline-block;
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

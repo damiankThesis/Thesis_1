@@ -1,0 +1,73 @@
+<div style="display: flex; flex-grow: 1">
+
+  <app-sidebar
+    (sidebarData)=onBookAdded($event)>
+  </app-sidebar>
+
+  <ng-container *ngIf="loaded">
+    <mat-spinner ></mat-spinner>
+  </ng-container>
+  <div class="root">
+    <ng-container *ngIf="!loaded">
+    <ng-container *ngFor="let car of page?.content" >
+    <div  *ngIf="check(car)" class="cont">
+      <div *ngIf="this.admin || car.availableStatus" >
+
+        <div [ngClass]="car.availableStatus ?'contUnAv': 'contAv'">
+         <div class="offer">
+          <div class="image">
+            <img *ngIf="car.image else defaultCarImage" src="{{'http://localhost:8080/api/v1/cars/data/images/car/' + car.image}}" alt="">
+          </div>
+
+          <ng-template #defaultCarImage>
+            <img src="../../../assets/img/default.jpg" alt="cars">
+          </ng-template>
+
+          <div class="info">
+              <p class="main">{{car.brand}} {{car.model}}
+                <span *ngIf="this.admin" style="font-size: 18px">({{car.registration}})</span>
+              </p>
+              <div class="infos">
+                <div class="inner"> <span *ngIf="car.carDetail.productionYear" class="about" style="font-weight: 500"> {{car.carDetail.productionYear}}r.</span></div>
+                <div class="inner"> <span *ngIf="car.carDetail.fuel" class="about"><i class="fa fa-gas-pump"></i> {{car.carDetail.fuel}}</span></div>
+                <div class="inner"> <span *ngIf="car.carDetail.gearbox" class="about"><i class="fa fa-gears"></i> {{car.carDetail.gearbox}}</span></div>
+                <div class="inner"> <span *ngIf="car.carDetail.doors" class="about"><img src="../../../assets/img/carComp/car_doors.png" width="20"  alt=""> {{car.carDetail.doors}}</span></div>
+                <div class="inner"> <span *ngIf="car.carDetail.seats" class="about"><img src="../../../assets/img/carComp/car-seat.png" width="20" alt=""> {{car.carDetail.seats}}</span></div>
+              </div>
+          </div>
+
+          <div class="button" >
+            <div *ngIf="!this.admin && car.rentBasePrice?.valueOf()" class="price">
+              <button routerLink="/rent" [queryParams]="{carId: car?.id}" class="btn btn-success btn-lg">Rent</button>
+              <div class="value">{{car.rentBasePrice}}<span class="unit"> PLN/day</span></div>
+            </div>
+            <div *ngIf=" !this.admin &&car.buyPrice?.valueOf()" class="price">
+              <button  routerLink="/buy" [queryParams]="{carId: car?.id}" class="btn btn-danger btn-lg">Buy</button>
+              <div class="value">{{car.buyPrice}}<span class="unit"> PLN</span></div>
+            </div>
+
+            <button *ngIf="this.admin" [routerLink]="['/admin-dashboard/edit-car', car.id]" class="btn btn-warning btn-lg adminButton">Edit</button>
+            <button *ngIf="this.admin" (click)="blockCar(car.id)" class="btn btn-dark btn-lg adminButton">Status</button>
+            <button *ngIf="this.admin" (click)="deleteCar(car.id)" class="btn btn-danger btn-lg adminButton">Delete</button>
+            <button *ngIf="this.admin" (click)="showOperations(car.id)" class="btn btn-info btn-lg adminButton">History</button>
+
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+
+    </ng-container>
+    </ng-container>
+    <div class="page">
+      <mat-paginator [length]="page?.totalElements"
+                     [pageSize]="10"
+                     [pageSizeOptions]="[10, 20, 50, 100]"
+                     aria-label="Select page"
+                     (page)="onPageEvent($event)" >
+      </mat-paginator>
+    </div>
+  </div>
+
+</div>

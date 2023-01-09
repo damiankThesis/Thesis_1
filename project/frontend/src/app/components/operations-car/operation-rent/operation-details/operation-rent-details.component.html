@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h1>Details</h1>
+  <div>
+    <p style="font-weight: 500; border-bottom: 1px solid black;">Date: {{data?.rentDate | date: 'dd-MM-yyyy'}}</p>
+
+    <div class="user">
+      <p class="head">User</p>
+      <p>{{data?.user.name}} {{data?.user.surname}} - rents {{data?.user.numberOfRent}},
+          buy: {{data?.user.numberOfBuy}}</p>
+    </div>
+
+    <div class="car">
+      <p class="head">Car</p>
+      <p class="main">{{data.car.brand}} {{data.car.model}} <span class="registration">({{data.car.registration}})</span></p>
+        <p>production year: {{data?.car.carDetail.productionYear>0? data?.car.carDetail.productionYear +'r.' : '-'}}</p>
+        <p>fuel: {{data?.car.carDetail.fuel || '-'}}, drive: {{data?.car.carDetail.drive || '-'}}</p>
+        <p>power: {{data?.car.carDetail.power>0? data?.car.carDetail.power+'KM' : '-'}},
+          Engine size: {{data?.car.carDetail.capacity>0? data?.car.carDetail.capacity +'cm3' : '-'}}</p>
+        <p>seats: {{data?.car.carDetail.seats || '-'}}, doors: {{data?.car.carDetail.doors || '-'}}</p>
+        <p>color: {{data?.car.carDetail.color.toLowerCase() || '-'}}</p>
+    </div>
+
+    <div class="desc">
+      <span class="head">Additional information from the client:</span> <p>{{data?.description || 'no data'}}</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+

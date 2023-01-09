@@ -1,0 +1,61 @@
+<div class="container" *ngIf="buy.length>0 || rent.length>0 else noData">
+
+  <div *ngIf="rent.length>0">
+    <h1>Rents</h1>
+    <div>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let oper of rent">
+            <td>{{oper?.user?.name}} {{oper?.user?.surname}}</td>
+            <td>{{oper?.startDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{oper?.endDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{oper?.totalCost }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="buy.length>0">
+    <h1>Buy</h1>
+    <div>
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let oper of buy">
+          <td>{{oper?.user?.name}} {{oper?.user?.surname}}</td>
+          <td>{{oper?.meetDate | date: 'dd-MM-yyyy'}}</td>
+          <td>{{oper?.totalBuyCost }}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #noData>
+  <p>no data.</p>
+</ng-template>
+
+
+
+
+

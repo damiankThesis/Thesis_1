@@ -1,0 +1,75 @@
+<div class="container">
+<h2>Rent</h2>
+  <div class="legend">
+      <div class="ended"></div><span>Ended</span>
+      <div class="future"></div><span>Future</span>
+  </div>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="table" matSort (matSortChange)="announceSortChange($event)">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" >Name</th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.user.name}} {{element.user.surname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col"> Email </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.user.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" > Phone </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.user.phone}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="startDate" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Start </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.startDate | date: 'dd-MM-yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> End </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.endDate | date: 'dd-MM-yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="car">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" > Car </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.car.brand}} {{element.car.model}} ({{element.car.registration}})</td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalCost">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Total </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.totalCost}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="payment">
+    <th mat-header-cell *matHeaderCellDef class="thead-light col" mat-sort-header> Payment </th>
+    <td class="data" mat-cell *matCellDef="let element"> {{element.payment}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef class="thead-light buttons"> Delete </th>
+    <td class="buttons" mat-cell *matCellDef="let element">
+      <button mat-raised-button class="btn btn-danger" (click)="delete(element.id)">delete</button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="details" >
+    <th mat-header-cell *matHeaderCellDef class="thead-light buttons"> Details </th>
+    <td class="buttons details" mat-cell *matCellDef="let element">
+     <button style="all:unset; cursor: pointer;" (click)="showDetails(element.id)"><a><i class="fas fa-info"></i></a></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      [class.past]='compareDate(row.endDate)' [class.future]='isNotStartedYet(row.startDate)'></tr>
+</table>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[10, 20, 50, 100]" aria-label="Select page"></mat-paginator>
+
+</div>

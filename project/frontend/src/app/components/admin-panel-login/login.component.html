@@ -1,0 +1,28 @@
+<div class="login">
+  <div class="form">
+    <form [formGroup]="loginFormGroup" fxLayout="column" (submit)="submit()" >
+      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
+      <div *ngIf="loginError" class="error">Enter the correct data!</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+      </mat-form-field>
+      <button mat-flat-button color="primary">Login</button>
+
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <p class=" fw-bold mt-2 pt-1 mb-0">Don't have an account?
+          <a href="" routerLink="/register" class="link-danger">Register!</a>
+        </p>
+
+        <p class=" fw-bold mt-2 pt-1 mb-0">Forgot your password?
+          <a href="" routerLink="/lostPassword" class="link-danger">Reset</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

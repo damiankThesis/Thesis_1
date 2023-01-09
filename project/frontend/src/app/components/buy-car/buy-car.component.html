@@ -1,0 +1,95 @@
+<div *ngIf="car" class="container">
+  <div class="panel">
+
+    <div class="left">
+      <div class="images">
+        <img *ngIf="car.image else defaultCarImage" src="{{'http://localhost:8080/api/v1/cars/data/images/car/' + car.image}}" alt="">
+      </div>
+
+      <ng-template #defaultCarImage>
+        <img src="../../../assets/img/default.jpg" alt="cars">
+      </ng-template>
+
+      <div class="amount">
+        <div *ngIf="car.buyPrice" class="buyPrice">buy: <span class="price">{{car.buyPrice}}</span><span class="unit"> PLN</span></div>
+      </div>
+
+      <ng-container >
+        <div class="calendar">
+          <p class="calinfo">Choose a date to see the car and test drive</p>
+          <mat-form-field class="inCalendar" appearance="fill" [formGroup]="date">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Meeting date"
+                    formControlName="start" [matDatepickerFilter]="myFilter" [min]="todayDate" [max]="endDate" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="!date">Invalid date</mat-error>
+          </mat-form-field>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <div class="rightPanel">
+      <div class="right">
+        <div class="info">
+          <p class="main">{{car.brand}} {{car.model}}</p>
+
+          <div class="detailsPanelLeft">
+            <p class="name">Year</p>
+            <p class="details">{{car.carDetail.productionYear || 'no data'}}</p>
+
+            <p class="name">Type car</p>
+            <p class="details">{{car.carDetail.type || 'no data'}}</p>
+
+            <p class="name">Fuel</p>
+            <p class="details">{{car.carDetail.fuel || 'no data'}}</p>
+
+            <p class="name">Power</p>
+            <p class="details">{{car.carDetail.power? car.carDetail.power+" KM" : 'no data'}}</p>
+
+            <p class="name">Engine size</p>
+            <p class="details">{{car.carDetail.capacity? car.carDetail.capacity +" cm3"  : 'no data'}}</p>
+
+            <p class="name">Gearbox</p>
+            <p class="details">{{car.carDetail.gearbox || 'no data'}}</p>
+          </div>
+
+          <div class="detailsPanelRight">
+            <p class="name">Drive</p>
+            <p class="details">{{car.carDetail.drive || 'no data'}}</p>
+
+            <p class="name">Doors</p>
+            <p class="details">{{car.carDetail.doors || 'no data'}}</p>
+
+            <p class="name">Seats</p>
+            <p class="details">{{car.carDetail.seats || 'no data'}}</p>
+
+            <p class="name">Color</p>
+            <p class="details">{{car.carDetail.color || 'no data'}}</p>
+
+
+            <div *ngIf="car.carDetail.description">
+              <p class="name">Description</p>
+              <textarea disabled readonly class="form-control desc" placeholder="Description" cols="150" rows="6"
+                        value="{{car.carDetail.description}}">
+            </textarea>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="buttons">
+    <button *ngIf="car.buyPrice?.valueOf()" (click)=buyCar()
+            matTooltip="Want to buy car? Click!" matTooltipShowDelay="300"
+            class="btn btn-primary btn-lg">Buy</button>
+  </div>
+
+
+</div>

@@ -1,0 +1,43 @@
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #03032f;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 4px
+}
+
+img {
+  height: 220px;
+  padding: 20px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h5 {
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  padding-top: 5px;
+}
+
+.card {
+  transition: all 0.5s;
+}
+
+.card :hover{
+  opacity: 0.5;
+}
+
+.row {
+  margin-bottom: 20px;
+}
